@@ -30,116 +30,129 @@ insert into manager values(7788,'Vikash',4000,0,48000,'12-Aug-82','clerk',50,'Bo
 ### Q1) Update all the records of manager table by increasing 10% of their salary as bonus.
 
 ### QUERY:
-
+```sql
+update manager set salary=salary+(salary*0.10);
+```
 
 ### OUTPUT:
+![Alt text](o1.png)
 
 ### Q2) Delete the records from manager table where the salary less than 2750.
 
 
 ### QUERY:
-
+```sql
+delete from manager where salary<2750;
+```
 
 ### OUTPUT:
+![Alt text](o2.png)
 
 ### Q3) Display each name of the employee as “Name” and annual salary as “Annual Salary” (Note: Salary in emp table is the monthly salary)
 
 
 ### QUERY:
+```sql
+select ename as "Name",salary*12 as "Annual salary" from manager;
+```
+### OUTPUT:
+![Alt text](o3.png)
 
+### Q4)	List the names of Clerks from emp table.
+### QUERY:
+```sql
+select ename from manager where designation='clerk';
+```
 
 ### OUTPUT:
+![Alt text](o4.png)
 
-### Q5)	List the names of Clerks from emp table.
+### Q5)	List the names of employee who are not Managers.
+### QUERY:
+```sql
+select ename from manager where designation <> 'manager';
+```
 
+### OUTPUT:
+![Alt text](o5.png)
+
+### Q6)	List the names of employees not eligible for commission.
+### QUERY:
+```sql
+select ename from manager where commission=0;
+```
+
+### OUTPUT:
+![Alt text](o6.png)
+
+### Q7)	List employees whose name either start or end with ‘s’.
+### QUERY:
+```sql
+select ename from manager where ename like '%S' or ename like 'S%';
+```
+### OUTPUT:
+![Alt text](o7.png)
+
+### Q8) Sort emp table in ascending order by hire-date and list ename, job, deptno and hire-date.
+### QUERY:
+```sql
+select ename,designation as "job",deptno,hiredate from manager order by hiredate asc;
+```
+
+### OUTPUT:
+![Alt text](o8.png)
+
+### Q9) List the Details of Employees who have joined before 30 Sept 81.
+### QUERY:
+```sql
+select * from manager where hiredate<to_date('1981-09-30','YYYY-MM-DD');
+```
+
+### OUTPUT:
+![Alt text](o9.png)
+
+### Q10)	List ename, deptno and sal after sorting emp table in ascending order by deptno and then descending order by sal.
+### QUERY:
+```sql
+select ename,deptno,salary from manager order by deptno asc,salary desc;
+```
+### OUTPUT:
+![Alt text](o10.png)
+
+### Q11) List the names of employees not belonging to dept no 30,40 & 10
+### QUERY:
+```sql
+select ename from manager where deptno not in (30,40,10);
+```
+### OUTPUT:
+![Alt text](o11.png)
+
+### Q12) Find number of rows in the table EMP
+### QUERY:
+```sql
+select count(*) from manager;
+```
+### OUTPUT:
+![Alt text](o12.png)
+
+### Q13) Find maximum, minimum and average salary in EMP table.
 
 ### QUERY:
-
-
+```sql
+select max(salary) from manager;
+select min(salary) from manager;
+select avg(salary) from manager;
+```
 ### OUTPUT:
+![Alt text](o13.png)
 
-
-### Q6)	List the names of employee who are not Managers.
-
-
+### Q14) List the jobs and number of employees in each job. The result should be in the descending order of the number of employees.
 ### QUERY:
-
-
+```sql
+SELECT designation AS job, COUNT(*) AS num_employees FROM manager GROUP BY designation ORDER BY num_employees DESC;
+```
 ### OUTPUT:
+![Alt text](o14.png)
 
-
-### Q7)	List the names of employees not eligible for commission.
-
-
-### QUERY:
-
-
-### OUTPUT:
-
-
-### Q8)	List employees whose name either start or end with ‘s’.
-
-
-### QUERY:
-
-
-### OUTPUT:
-
-
-### Q9) Sort emp table in ascending order by hire-date and list ename, job, deptno and hire-date.
-
-
-### QUERY:
-
-
-### OUTPUT:
-
-
-### Q10) List the Details of Employees who have joined before 30 Sept 81.
-
-
-### QUERY:
-
-
-### OUTPUT:
-
-
-### Q11)	List ename, deptno and sal after sorting emp table in ascending order by deptno and then descending order by sal.
-
-
-### QUERY:
-
-
-### OUTPUT:
-
-
-### Q12) List the names of employees not belonging to dept no 30,40 & 10
-
-
-### QUERY:
-
-
-### OUTPUT:
-
-### Q13) Find number of rows in the table EMP
-
-### QUERY:
-
-
-### OUTPUT:
-
-
-### Q14) Find maximum, minimum and average salary in EMP table.
-
-### QUERY:
-
-
-### OUTPUT:
-
-
-### Q15) List the jobs and number of employees in each job. The result should be in the descending order of the number of employees.
-
-### QUERY:
-
-
-### OUTPUT:
+## Result:
+Thus the manager database is created and DML queries is executed successfully using SQL .
