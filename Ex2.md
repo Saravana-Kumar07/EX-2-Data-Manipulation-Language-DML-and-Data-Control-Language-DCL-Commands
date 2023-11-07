@@ -1,4 +1,5 @@
-# <p align="center"> EX 2 Data Manipulation Language (DML) Commands and built in functions in SQL
+# <p align="center"> EX 2 Data Manipulation Language (DML) Commands and built-in functions in SQL</p>
+### DATE: 22/08/23
 ## AIM:
 To create a manager database and execute DML queries using SQL. </p>
 
